@@ -49,3 +49,4 @@ int _printer(const char *format, const format_t *format_map, int map_size,
 
 	return (total);
 }
+/* test */
