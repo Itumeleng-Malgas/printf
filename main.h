@@ -24,4 +24,7 @@ int _printf(const char *arg, ...);
 /* helper functions */
 void _putchar(char c);
 
+int _printf_c(void *);
+int _printf_s(void *);
+
 #endif /* MAIN_H */
