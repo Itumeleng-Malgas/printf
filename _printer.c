@@ -24,7 +24,10 @@ int _printer(const char *format, const format_t *format_map, int map_size,
 
 			/* Handle %% case */
 			if (format[i + 1] == '%')
+			{
 				_putchar('%');
+				total++;
+			}
 
 			for (j = 0; j < map_size; j++)
 			{
