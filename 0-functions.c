@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -13,7 +12,7 @@ int _printf_s(void *arg)
 	char *str = *(char **)arg;
 	int i = 0;
 
-	if (str == NULL)
+	if (!str)
 		return (-1);
 
 	while (*str != '\0')
