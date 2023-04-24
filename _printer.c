@@ -16,7 +16,7 @@ int _printer(const char c, va_list args)
 	if (c == '%')
 		return (_putchar('%'));
 
-	if (c == 's' || c == 'c')
+	if (c == 's' || c == 'c' || c == 'd' || c == 'i')
 	{
 		if (c != 'c')
 		{
