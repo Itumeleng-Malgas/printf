@@ -11,18 +11,13 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	format_t format_map[] = {
-		{'c', _printf_c},
-		{'s', _printf_s},
-	};
-	int i = 0, map_size, result;
+	int i = 0,  result;
 
 	/* handle format undefined case */
 	if (!format)
 		return (-1);
 
 	va_start(args, format);
-	map_size = sizeof(format_map) / sizeof(format_t);
 
 	while (format[i] != '\0')
 	{
@@ -32,7 +27,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			i++;
-			result += _printer(format[i], format_map, map_size, args);
+			result += _printer(format[i], args);
 			i++;
 		}
 		else
