@@ -17,7 +17,7 @@ typedef struct format_struct
 } format_t;
 
 #include <stdarg.h>
-int _printer(const char *format, const format_t *format_map,int map_size,
+int _printer(const char c, const format_t *format_map,int map_size,
 		va_list args);
 int _printf(const char *arg, ...);
 

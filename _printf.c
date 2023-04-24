@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 		{'s', _printf_s},
 		{'%', _printf_c}
 	};
-	int map_size, result;
+	int i = 0, map_size, result;
 
 	/* handle format undefined case */
 	if (!format)
@@ -25,7 +25,20 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	map_size = sizeof(format_map) / sizeof(format_t);
 
-	result = _printer(format, format_map,map_size, args);
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%' && format[i + 1] != '\0')
+		{
+			i++;
+			result += _printer(format[i], format_map, map_size, args);
+			i++;
+		}
+		else
+		{
+			result += _putchar(format[i]);
+			i++;
+		}
+	}
 	va_end(args);
 
 	return (result);
