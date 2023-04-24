@@ -10,6 +10,7 @@
  */
 int main(void)
 {
+	int len;
 	char *str = NULL;
     _printf("Let's try to printf a simple sentence.\n");
 
@@ -17,8 +18,11 @@ int main(void)
     _printf("String:[%s]\n", "I am a string !");
     _printf("Percent:[%%]\n");
     _printf("Unknown:[%r]\n");
-	_printf("%%%%");
+	_printf("%%%%\n");
 
 	_printf("%s\n", str);
+	len = _printf("before %% %");
+
+	printf("%d\n", len);
     return (0);
 }
