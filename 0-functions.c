@@ -27,7 +27,7 @@ int _printf_s(void *arg)
 /**
  * _printf_c - prints a character
  * @arg: a character to print.
- * 
+ *
  * Return: number of character printed
  */
 
