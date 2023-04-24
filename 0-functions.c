@@ -13,7 +13,7 @@ int _printf_s(void *arg)
 	int i = 0;
 
 	if (!str)
-		return (-1);
+		str = "(null)";
 
 	while (*str != '\0')
 	{
