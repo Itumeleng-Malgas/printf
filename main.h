@@ -22,7 +22,7 @@ int _printer(const char *format, const format_t *format_map,int map_size,
 int _printf(const char *arg, ...);
 
 /* helper functions */
-void _putchar(char c);
+int _putchar(char c);
 
 int _printf_c(void *);
 int _printf_s(void *);

@@ -15,37 +15,45 @@ int _printer(const char *format, const format_t *format_map, int map_size,
 		va_list args)
 {
 	int i = 0, total = 0;
-
+	
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			int j;
-
-			/* Handle %% case */
-			if (format[i + 1] == '%')
-			{
-				_putchar('%');
-				total++;
-			}
-
-			for (j = 0; j < map_size; j++)
-			{
-				if (format_map[j].format == format[i + 1])
-				{
-					void *arg = va_arg(args, void *);
-
-					total += format_map[j].print_func(&arg);
-					i++;
-					break;
-				}
-			}
 			i++;
+			if (format[i] == '%' || format[i] == 's' || format[i] == 'c')
+			{
+				int j;
+
+				if (format[i] == '%')
+				{
+					total += _putchar('%');
+					i++;
+					continue;
+				}
+				
+				for (j = 0; j < map_size; j++)
+				{
+					if (format_map[j].format == format[i])
+					{
+						void *arg = va_arg(args, void *);
+				
+						total += format_map[j].print_func(&arg);
+						break;
+					}
+				}
+				i++;
+			}
+			else
+			{
+				total += _putchar('%');
+				total += _putchar(format[i]);
+				i++;
+			}
 		}
 		else
 		{
-			_putchar(format[i]);
-			total++;
+			total += _putchar(format[i]);
 			i++;
 		}
 	}

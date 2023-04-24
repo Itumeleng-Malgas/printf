@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 	format_t format_map[] = {
 		{'c', _printf_c},
 		{'s', _printf_s},
+		{'%', _printf_c}
 	};
 	int map_size, result;
 
