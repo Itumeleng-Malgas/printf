@@ -14,7 +14,6 @@ int _printf(const char *format, ...)
 	format_t format_map[] = {
 		{'c', _printf_c},
 		{'s', _printf_s},
-		{'%', _printf_c}
 	};
 	int i = 0, map_size, result;
 
@@ -27,6 +26,9 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0')
 	{
+		if (format[i] == '%' && format[i + 1] == '\0')
+			return (-1);
+
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			i++;
@@ -35,8 +37,6 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format[i] == '%' && format[i + 1] == '\0')
-				return (-1);
 			result += _putchar(format[i]);
 			i++;
 		}
