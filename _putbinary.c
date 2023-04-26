@@ -24,6 +24,5 @@ int _putbinary(void *arg)
 		_putchar(48 + binary[j]);
 	}
 
-	_putchar('\0');
 	return (i);
 }
