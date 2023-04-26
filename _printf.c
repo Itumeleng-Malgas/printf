@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0,  result;
+	int i = 0,  result = 0;
 
 	/* handle format undefined case */
 	if (!format)

@@ -14,28 +14,29 @@ int _printer(const char c, va_list args)
 	int total = 0;
 
 	if (c == '%')
-		return (_putchar('%'));
-
-	if (c == 's' || c == 'c')
+		total += _putchar('%');
+	else if (c == 's')
 	{
-		if (c != 'c')
-		{
-			void *arg = va_arg(args, void *);
+		void *arg = va_arg(args, void *);
 
-			total += _putchars(&arg);
-		}
-		else
-		{
-			char ch = va_arg(args, int);
+		total += _putchars(&arg);
+	}
+	else if (c == 'd' || c == 'i')
+	{
+		void *arg = va_arg(args, void *);
 
-			total += _putchar(ch);
-		}
+		total += _putint(&arg);
+	}
+	else if (c == 'c')
+	{
+		void *arg = va_arg(args, void *);
+
+		total += _vputchar(&arg);
 	}
 	else
 	{
 		total += _putchar('%');
 		total += _putchar(c);
-		return (total);
 	}
 
 	return (total);
