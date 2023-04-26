@@ -33,6 +33,12 @@ int _printer(const char c, va_list args)
 
 		total += _vputchar(&arg);
 	}
+	else if (c == 'b')
+	{
+		void *arg = va_arg(args, void *);
+
+		total += _putbinary(&arg);
+	}
 	else
 	{
 		total += _putchar('%');

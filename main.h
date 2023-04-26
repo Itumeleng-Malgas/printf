@@ -13,7 +13,7 @@ int _printf(const char *arg, ...);
 int _putchars(void *arg);
 int _vputchar(void *arg);
 int _putint(void *arg);
-
+int _putbinary(void *arg);
 int _putchar(char c);
 
 #endif /* MAIN_H */
