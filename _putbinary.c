@@ -8,22 +8,16 @@
 
 int _putbinary(void *arg)
 {
-	int num = *(int *)arg;
-	int binary[sizeof(int) * 8];
-	int temp, j, i = 0;
+	int num = *(unsigned int *)arg;
+	int size = sizeof(unsigned int) * 8;
+	char buffer[size + 1];
 
-	while (num > 0)
+	for (int i = size - 1; i >= 0; i--)
 	{
-		binary[i] = num % 2;
-		num = num / 2;
-		i++;
+		buffer[size - i - 1] = ((num >> i) & 1) + '0';
 	}
 
-	temp = i;
-	for (j = temp - 1; j >= 0; j--)
-	{
-		_putchar(48 + binary[j]);
-	}
-
-	return (i);
+	buffer[size] = '\0';
+	write(1, buffer, size);
+	return (size);
 }
