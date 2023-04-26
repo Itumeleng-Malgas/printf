@@ -8,10 +8,10 @@
 
 int _putint(void *arg)
 {
-	int res, num = *(int *)arg;
+	int num = *(int *)arg;
 	char buf[32];
 
-	res = sprintf(buf, "%d", num);
+	sprintf(buf, "%d", num);
 
 	return (write(1, buf, strlen(buf)));
 }
